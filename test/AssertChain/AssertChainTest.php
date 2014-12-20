@@ -5,7 +5,7 @@ namespace AssertChain;
  * Class AssertChainTest
  * @package AssertChain
  */
-class AssertChainTest extends \PHPUnit_Framework_TestCase
+class AssertChainTest extends AssertChain
 {
     /**
      * @test
@@ -13,6 +13,7 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
     public function first()
     {
         $a = new AssertChain();
-        $this->assertTrue($a->first());
+
+        $this->assertTrue($a->testAssert());
     }
 }

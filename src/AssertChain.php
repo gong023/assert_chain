@@ -3,12 +3,26 @@ namespace AssertChain;
 
 /**
  * Class AssertChain
+ * @package AssertChain
  */
-class AssertChain
+class AssertChain extends \PHPUnit_Framework_TestCase
 {
-    public function first()
+    static $asserts = [];
+
+    use AssertTrait;
+
+    /**
+     * @param string $name
+     * @param array  $data
+     * @param string $dataName
+     */
+    public function __construct($name = null, array $data = [], $dataName = '')
     {
-        return true;
+        parent::__construct($name, $data, $dataName);
+
+        self::defineAssert('testAssert', function() {
+            return true;
+        });
     }
 }
 
