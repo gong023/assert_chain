@@ -1,19 +1,15 @@
 <?php
 namespace AssertChain;
 
-/**
- * Class AssertChainTest
- * @package AssertChain
- */
-class AssertChainTest extends AssertChain
+class AssertChainTest extends \PHPUnit_Framework_TestCase
 {
+    use AssertChain;
+
     /**
      * @test
      */
-    public function first()
+    public function assertReturnContainer()
     {
-        $a = new AssertChain();
-
-        $this->assertTrue($a->testAssert());
+        $this->assertInstanceOf('\AssertChain\Container', $this->assert('some value'));
     }
 }

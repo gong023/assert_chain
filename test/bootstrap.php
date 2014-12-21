@@ -1,3 +1,3 @@
 <?php
 $loader = require __DIR__ . '/../vendor/autoload.php';
-$loader->addPsr4('LibName\\', __DIR__ . '/LibName');
+$loader->addPsr4('AssertChain\\', __DIR__ . '/AssertChain');
