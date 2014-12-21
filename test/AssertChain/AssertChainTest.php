@@ -8,8 +8,15 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function assertReturnContainer()
+    public function assertReturnAggregater()
     {
-        $this->assertInstanceOf('\AssertChain\Container', $this->assert('some value'));
+        $this->assertInstanceOf('\AssertChain\Aggregater', $this->assert('some value'));
+    }
+
+    public function testArrayHasKey()
+    {
+        $this->assert(['key' => 'value'])
+            ->arrayHasKey('key')
+            ->arrayHasKey('key');
     }
 }

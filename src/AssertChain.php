@@ -9,10 +9,10 @@ trait AssertChain
 {
     /**
      * @param mixed $actual
-     * @return Container
+     * @return Aggregater
      */
     public function assert($actual)
     {
-        return Container::getInstance($actual);
+        return Aggregater::getInstance($actual);
     }
 }
