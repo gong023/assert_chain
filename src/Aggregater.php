@@ -62,7 +62,6 @@ class Aggregater
      * @param mixed  $key
      * @param string $message
      * @return $this
-     * @throws AssertChainFunctionNotExistException
      */
     public function arrayHasKey($key, $message = '')
     {
@@ -77,7 +76,6 @@ class Aggregater
      * @param bool              $strict
      * @param string            $message
      * @return $this
-     * @throws AssertChainFunctionNotExistException
      */
     public function arraySubSet($subset, $strict = false, $message = '')
     {
@@ -91,7 +89,6 @@ class Aggregater
      * @param mixed  $key
      * @param string $message
      * @return $this
-     * @throws AssertChainFunctionNotExistException
      */
     public function arrayNotHasKey($key, $message = '')
     {
@@ -549,7 +546,7 @@ class Aggregater
     public function attributeLessThan($expected, $actualAttributeName, $message = '')
     {
         $this->validateCallable('assertAttributeLessThan');
-        forward_static_call_array([self::ASSERT_CLASS, 'assertAttributeLessThan'], [$expected, $actualAttributeName, $message]);
+        forward_static_call_array([self::ASSERT_CLASS, 'assertAttributeLessThan'], [$expected, $actualAttributeName, self::$actual, $message]);
 
         return $this;
     }
@@ -580,7 +577,7 @@ class Aggregater
     public function attributeLessThanOrEqual($expected, $actualAttributeName, $message = '')
     {
         $this->validateCallable('assertAttributeLessThanOrEqual');
-        forward_static_call_array([self::ASSERT_CLASS, 'assertAttributeLessThanOrEqual'], [$expected, $actualAttributeName, $message]);
+        forward_static_call_array([self::ASSERT_CLASS, 'assertAttributeLessThanOrEqual'], [$expected, $actualAttributeName, self::$actual, $message]);
 
         return $this;
     }
