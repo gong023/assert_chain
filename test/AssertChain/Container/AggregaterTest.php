@@ -12,12 +12,12 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
      */
     public function assertReturnAggregater()
     {
-        $this->assertInstanceOf('\AssertChain\Container\Aggregater', $this->assert('some value'));
+        $this->assertInstanceOf('\AssertChain\Container\Aggregater', $this->centralizedAssert('some value'));
     }
 
     public function testWithArray()
     {
-        $this->assert(['key' => 'value'])
+        $this->centralizedAssert(['key' => 'value'])
             ->notNull()
             ->notEmpty()
             ->notCount(0)
@@ -31,7 +31,7 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
 
     public function testWithInt()
     {
-        $this->assert(10)
+        $this->centralizedAssert(10)
             ->notTrue()
             ->notFalse()
             ->notInternalType('float')
@@ -46,7 +46,7 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
 
     public function testWithString()
     {
-        $this->assert('test string')
+        $this->centralizedAssert('test string')
             ->stringStartsNotWith('a')
             ->stringStartsWith('tes')
             ->stringEndsNotWith('a')
@@ -58,7 +58,7 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
 
     public function testWithJsonString()
     {
-        $this->assert('{"test":"json"}')
+        $this->centralizedAssert('{"test":"json"}')
             ->json()
             ->jsonStringNotEqualsJsonString('{"wrong":"json"}')
             ->jsonStringEqualsJsonString('{"test":"json"}');
@@ -66,7 +66,7 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
 
     public function testWithClass()
     {
-        $this->assert('\AssertChain\Container\Test\SampleClass')
+        $this->centralizedAssert('\AssertChain\Container\Test\SampleClass')
             ->classNotHasAttribute('no existing attribute')
             ->classHasAttribute('attrInt1')
             ->classNotHasStaticAttribute('no existing static attribute')
@@ -75,7 +75,7 @@ class AggregaterTest extends \PHPUnit_Framework_TestCase
 
     public function testWithObject()
     {
-        $this->assert(new SampleClass(20, new \stdClass))
+        $this->centralizedAssert(new SampleClass(20, new \stdClass))
             ->objectNotHasAttribute('no existing attribute')
             ->objectHasAttribute('attrInt2')
             ->attributeNotEmpty('attrArray')
