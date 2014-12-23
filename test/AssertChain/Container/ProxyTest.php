@@ -19,6 +19,8 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->assert()
-            ->arrayHasKey('key', $arr);
+            ->arrayHasKey('key', $arr)
+            ->true(true)
+            ->same(0, 0);
     }
 }
