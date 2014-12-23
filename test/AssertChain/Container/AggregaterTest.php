@@ -1,9 +1,9 @@
 <?php
-namespace AssertChain\Test;
+namespace AssertChain\Container\Test;
 
 use AssertChain\AssertChain;
 
-class AssertChainTest extends \PHPUnit_Framework_TestCase
+class AggregaterTest extends \PHPUnit_Framework_TestCase
 {
     use AssertChain;
 
@@ -12,7 +12,7 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
      */
     public function assertReturnAggregater()
     {
-        $this->assertInstanceOf('\AssertChain\Aggregater', $this->assert('some value'));
+        $this->assertInstanceOf('\AssertChain\Container\Aggregater', $this->assert('some value'));
     }
 
     public function testWithArray()
@@ -66,9 +66,9 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
 
     public function testWithClass()
     {
-        $this->assert('\AssertChain\Test\SampleClass')
+        $this->assert('\AssertChain\Container\Test\SampleClass')
             ->classNotHasAttribute('no existing attribute')
-            ->classHasAttribute('attr1')
+            ->classHasAttribute('attrInt1')
             ->classNotHasStaticAttribute('no existing static attribute')
             ->classHasStaticAttribute('staticAttr');
     }
@@ -77,7 +77,7 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
     {
         $this->assert(new SampleClass(20, new \stdClass))
             ->objectNotHasAttribute('no existing attribute')
-            ->objectHasAttribute('attr2')
+            ->objectHasAttribute('attrInt2')
             ->attributeNotEmpty('attrArray')
             ->attributeNotCount(4, 'attrArray')
             ->attributeCount(3, 'attrArray')
@@ -85,31 +85,30 @@ class AssertChainTest extends \PHPUnit_Framework_TestCase
             ->attributeContains(1, 'attrArray')
             ->attributeNotContainsOnly('string', 'attrArray')
             ->attributeContainsOnly('integer', 'attrArray')
-            ->attributeCount(3, 'attrArray')
-            ->attributeGreaterThanOrEqual(10, 'attr1')
-            ->attributeGreaterThan(9, 'attr1')
-            ->attributeLessThanOrEqual(20, 'attr2')
-            ->attributeLessThan(21, 'attr2')
-            ->attributeNotEquals(21, 'attr2')
-            ->attributeEquals('20', 'attr2')
-            ->attributeNotInternalType('string', 'attr2')
-            ->attributeInternalType('integer', 'attr2')
-            ->attributeNotSame('20', 'attr2')
-            ->attributeSame(20, 'attr2')
-            ->attributeNotInstanceOf('\AssertChain\Test\SampleClass', 'attrStdClass')
+            ->attributeGreaterThanOrEqual(10, 'attrInt1')
+            ->attributeGreaterThan(9, 'attrInt1')
+            ->attributeLessThanOrEqual(20, 'attrInt2')
+            ->attributeLessThan(21, 'attrInt2')
+            ->attributeNotEquals(21, 'attrInt2')
+            ->attributeEquals('20', 'attrInt2')
+            ->attributeNotInternalType('string', 'attrInt2')
+            ->attributeInternalType('integer', 'attrInt2')
+            ->attributeNotSame('20', 'attrInt2')
+            ->attributeSame(20, 'attrInt2')
+            ->attributeNotInstanceOf('\AssertChain\Container\Test\SampleClass', 'attrStdClass')
             ->attributeInstanceOf('\stdClass', 'attrStdClass');
     }
 }
 
 class SampleClass
 {
-    public $attr1 = 10;
+    public $attrInt1 = 10;
     public static $staticAttr = 'staticValue1';
     public $attrArray = [1, 2, 3];
 
-    public function __construct($value, $stdClass)
+    public function __construct($int, $stdClass)
     {
-        $this->attr2 = $value;
+        $this->attrInt2 = $int;
         $this->attrStdClass = $stdClass;
     }
 }

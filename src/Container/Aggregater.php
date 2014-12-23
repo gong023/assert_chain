@@ -1,6 +1,8 @@
 <?php
-namespace AssertChain;
+namespace AssertChain\Container;
+
 use ArrayAccess;
+use AssertChain\Container;
 use Countable;
 use DOMElement;
 use Traversable;
@@ -9,10 +11,8 @@ use Traversable;
  * Class Aggregater
  * @package AssertChain
  */
-class Aggregater
+class Aggregater extends Container
 {
-    const ASSERT_CLASS = '\PHPUnit_Framework_Assert';
-
     /**
      * @var Aggregater|null
      */
@@ -44,18 +44,6 @@ class Aggregater
         self::$instance = new Aggregater($actual);
 
         return self::$instance;
-    }
-
-    /**
-     * @param $funcName
-     * @throws AssertChainFunctionNotExistException
-     */
-    public function validateCallable($funcName)
-    {
-        if (! is_callable([self::ASSERT_CLASS, $funcName])) {
-            $m = $funcName . ' is not found in ' . self::ASSERT_CLASS . '. your phpunit version is ' . \PHPUnit_Runner_Version::id();
-            throw new AssertChainFunctionNotExistException($m);
-        }
     }
 
     /**

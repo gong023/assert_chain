@@ -1,6 +1,8 @@
 <?php
 namespace AssertChain;
 
+use AssertChain\Container\Aggregater;
+
 /**
  * Class AssertChain
  * @package AssertChain
