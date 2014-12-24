@@ -23,7 +23,9 @@ class YourTestClass extends \PHPUnit_Framework_TestCase
 
 # Usage
 
-First you call `assert`, and keep asserting as you like. You can use all assertions in PHPUnit_Framework_Assert.
+First you call `assert`, and keep asserting as you like.
+
+You can use all assertions in PHPUnit_Framework_Assert.
 
 ```php
 public function testWithArray()
@@ -90,9 +92,11 @@ public function testWithArray()
 }
 ```
 
-`centralizedAssert` automatically sets `$actual` value to every assertions in PHPUnit_Framework_Assert. You need not type `$actual` value too many times.
+`centralizedAssert` automatically sets `$actual` value to every assertions in PHPUnit_Framework_Assert.
 
-If you want to get more idea with centralizedAssert, AssertChain test class will help you.
+You need not type `$actual` value too many times.
+
+If you want to get more idea with centralizedAssert, [AssertChain test class will help you](https://github.com/gong023/assert_chain/blob/master/test/AssertChain/Container/AggregaterTest.php).
 
 # IDE friendly
 
