@@ -29,7 +29,7 @@ use AssertChain\Container;
  * @method \AssertChain\Container\Proxy attributeEquals($expected, $actualAttributeName, $actualClassOrObject, $message = '', $delta = 0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
  * @method \AssertChain\Container\Proxy notEquals($expected, $actual, $message = '', $delta = 0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
  * @method \AssertChain\Container\Proxy attributeNotEquals($expected, $actualAttributeName, $actualClassOrObject, $message = '', $delta = 0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
- * @method \AssertChain\Container\Proxy empty($actual, $message = '')
+ * @method \AssertChain\Container\Proxy beEmpty($actual, $message = '')
  * @method \AssertChain\Container\Proxy attributeEmpty($haystackAttributeName, $haystackClassOrObject, $message = '')
  * @method \AssertChain\Container\Proxy notEmpty($actual, $message = '')
  * @method \AssertChain\Container\Proxy attributeNotEmpty($haystackAttributeName, $haystackClassOrObject, $message = '')
@@ -111,6 +111,9 @@ class Proxy extends Container
         switch($method) {
             case 'arrayHasKey':
                 $method = 'assert' . ucfirst($method);
+                break;
+            case 'beEmpty':
+                $method = 'assertEmpty';
                 break;
         }
 

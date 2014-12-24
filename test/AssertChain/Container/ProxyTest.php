@@ -15,12 +15,18 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     public function testWithArray()
     {
         $arr = [
-            'key' => 'value',
+            'intKey'    => 1,
+            'stringKey' => 'foo',
+            'boolKey'   => true,
         ];
 
         $this->assert()
-            ->arrayHasKey('key', $arr)
-            ->true(true)
-            ->same(0, 0);
+            ->notEmpty($arr)
+            ->arrayHasKey('intKey', $arr)
+            ->same(1, $arr['intKey'])
+            ->arrayHasKey('stringKey', $arr)
+            ->same('foo', $arr['stringKey'])
+            ->arrayHasKey('boolKey', $arr)
+            ->true($arr['boolKey']);
     }
 }
