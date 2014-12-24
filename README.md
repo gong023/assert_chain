@@ -1,5 +1,7 @@
 # AssertChain
 
+[![Build Status](https://travis-ci.org/gong023/assert_chain.svg?branch=master)](https://travis-ci.org/gong023/assert_chain)
+
 AssertChain is PHPUnit helper. It enables you to write PHPUnit assert with method chain.
 
 # Setup
