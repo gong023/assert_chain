@@ -9,7 +9,7 @@ AssertChain is PHPUnit helper. It enables you to write PHPUnit assert with metho
 Install AssertChain by composer.
 
 ```bash
-composer require --dev gong023/assert-chain:dev-master
+composer require --dev gong023/assert_chain:dev-master
 # install phpunit if you do not install yet.
 # composer require --dev phpunit/phpunit:4.*
 ```
