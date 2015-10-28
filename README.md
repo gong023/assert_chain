@@ -19,7 +19,7 @@ Import AssertChain trait to your test class.
 ```php
 class YourTestClass extends \PHPUnit_Framework_TestCase
 {
-    use AssertChain;
+    use AssertChain\AssertChain;
 }
 ```
 
@@ -89,7 +89,7 @@ public function testWithArray()
      * $this->assertArrayNotHasKey('no existing key', $arr);
      * $this->assertNotContains('no existing value', $arr);
      * $this->assertContains('value', $arr);
-     * $this->assertEquals(['key' = 'value']);
+     * $this->assertEquals(['key' => 'value']);
      */
 }
 ```
