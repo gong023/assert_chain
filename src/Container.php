@@ -1,6 +1,8 @@
 <?php
 namespace AssertChain;
 
+use PHPUnit\Runner\Version;
+
 /**
  * Class Container
  *
@@ -8,7 +10,7 @@ namespace AssertChain;
  */
 class Container
 {
-    const ASSERT_CLASS = '\PHPUnit_Framework_Assert';
+    const ASSERT_CLASS = '\\PHPUnit\\Framework\\Assert';
 
     /**
      * @param $funcName
@@ -17,7 +19,7 @@ class Container
     protected function validateCallable($funcName)
     {
         if (! is_callable([self::ASSERT_CLASS, $funcName])) {
-            $m = $funcName . ' is not found in ' . self::ASSERT_CLASS . '. your phpunit version is ' . \PHPUnit_Runner_Version::id();
+            $m = $funcName . ' is not found in ' . self::ASSERT_CLASS . '. your phpunit version is ' . Version::id();
             throw new \BadMethodCallException($m);
         }
     }
