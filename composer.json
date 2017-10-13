@@ -2,7 +2,7 @@
     "name": "gong023/assert_chain",
     "description": "enable you to use phpunit assert with method chain",
     "require-dev": {
-        "phpunit/phpunit": "~4.4"
+        "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4"
     },
     "license": "MIT",
     "authors": [

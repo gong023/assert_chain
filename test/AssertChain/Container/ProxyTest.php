@@ -2,13 +2,14 @@
 namespace AssertChain\Container\Test;
 
 use AssertChain\AssertChain;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ProxyTest
  *
  * @package AssertChain\Container\Test
  */
-class ProxyTest extends \PHPUnit_Framework_TestCase
+class ProxyTest extends TestCase
 {
     use AssertChain;
 

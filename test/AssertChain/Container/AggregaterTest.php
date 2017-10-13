@@ -2,8 +2,9 @@
 namespace AssertChain\Container\Test;
 
 use AssertChain\AssertChain;
+use PHPUnit\Framework\TestCase;
 
-class AggregaterTest extends \PHPUnit_Framework_TestCase
+class AggregaterTest extends TestCase
 {
     use AssertChain;
 
